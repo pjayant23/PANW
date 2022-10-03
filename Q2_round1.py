@@ -6,10 +6,29 @@ A = '40000023'
 naive = str(int(A)+int(B))
 print(naive)
 
-
-#Approch2 - using list reversal, size of list (the logic I was trying to implement on call)
-#Time Complexity: O(1)
+#Approach 2 - using reverse string and indexing to add without typecasting
+#Time Complexity: O(n+m)
 def approach2(A,B):
+        list_ints = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        num1 = [str(i) for i in num1]
+        num1 = num1[::-1] #reversing the string
+        num2 = [str(j) for j in num2]
+        num2 = num2[::-1] #reversing string 
+        res_A = 0 #to cover scenario when input size varies
+        res_B = 0 #to cover scenario when input size varies
+        for i in range(len(num1)):
+	        curr_num_A = list_ints.index(num1[i]) #mapping index to number in list_ints
+	        res_A += curr_num_A * 10 ** i #multiplying value from list_ints to 10 to the power of index 
+        for j in range(len(num2)):
+	        curr_num_B = list_ints.index(num2[j]) #mapping index to number in list_ints
+	        res_B += curr_num_B * 10 ** j #multiplying value from list_ints to 10 to the power of index
+        res = res_B + res_A
+        return str(res)
+
+
+#Approch3 - using list reversal, size of list (the logic I was trying to implement on call)
+#Time Complexity: O(n)
+def approach3(A,B):
 	a1 = len(A)
 	b1 = len(B)
 	n = max(a1, b1)
@@ -42,3 +61,4 @@ def approach2(A,B):
 	print(str(ans)) #printing answer as a string
 
 approach2(A,B)
+approach3(A,B)
