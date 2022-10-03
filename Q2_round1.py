@@ -53,8 +53,8 @@ def approach3(A,B):
 			nB = 0 ##error handling incase size(B) < n
 
 		num  = ans[i] + nA +nB #addnng digits of the strings A and B from end
-		ans[i] = num %10 #getting remainder to append to ans
-		ans.append((int(num/10))) #adding answer
+		ans[i] = num %10 #getting remainder to append to ans useful for 2 digit sum
+		ans.append((int(num/10))) # number caary forward identifier
 	
 	ans = ans[::-1] #returning output to original index
 	ans = int(''.join([str(i) for i in ans]) )#removing space and converting to int
